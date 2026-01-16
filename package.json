@@ -5,7 +5,11 @@
   "scripts": {
   "test": "cypress run",
   "merge-reports": "mochawesome-merge cypress/reports/mochawesome/*.json > cypress/reports/report.json",
-  "generate-report": "marge cypress/reports/report.json -f index -o cypress/reports/html"
+  "generate-report": "marge cypress/reports/report.json -f index -o cypress/reports/html",
+  "test:dev": "cypress run --env environment=dev",
+  "test:qa": "cypress run --env environment=qa",
+  "test:prod": "cypress run --env environment=prod",
+  "test:open:qa": "cypress open --env environment=qa"
   },
   "keywords": [],
   "author": "",

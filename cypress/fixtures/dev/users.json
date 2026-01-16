@@ -1,0 +1,6 @@
+{
+  "baseUrl": "https://dev.myapp.com",
+  "apiUrl": "https://dev.api.myapp.com",
+  "username": "dev_user",
+  "password": "dev_pass"
+}

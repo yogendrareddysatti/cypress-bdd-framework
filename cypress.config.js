@@ -4,6 +4,8 @@ const addCucumberPreprocessorPlugin =
   require("@badeball/cypress-cucumber-preprocessor").addCucumberPreprocessorPlugin;
 const createEsbuildPlugin =
   require("@badeball/cypress-cucumber-preprocessor/esbuild").createEsbuildPlugin;
+const fs = require("fs");
+const path = require("path");
 
 module.exports = defineConfig({
   reporter: "mochawesome",
@@ -30,6 +32,23 @@ videosFolder:"cypress/reports/videos",
           plugins: [createEsbuildPlugin(config)],
         })
       );
+
+      const envName = config.env.environment || "dev";
+
+      const envConfigPath = path.resolve(
+        "cypress/config",
+        `${envName}.json`
+      );
+
+      if (fs.existsSync(envConfigPath)) {
+        const envConfig = JSON.parse(
+          fs.readFileSync(envConfigPath)
+        );
+
+        config.baseUrl = envConfig.baseUrl;
+        config.env = { ...config.env, ...envConfig };
+      }
+
       return config;
     },
   },

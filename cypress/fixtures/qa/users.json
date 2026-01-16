@@ -1,0 +1,6 @@
+{
+  "baseUrl": "https://qa.myapp.com",
+  "apiUrl": "https://qa.api.myapp.com",
+  "username": "qa_user",
+  "password": "qa_pass"
+}
