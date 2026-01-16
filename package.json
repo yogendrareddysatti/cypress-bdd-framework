@@ -1,0 +1,22 @@
+{
+  "name": "cypress-bdd-framework",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+  "test": "cypress run",
+  "merge-reports": "mochawesome-merge cypress/reports/mochawesome/*.json > cypress/reports/report.json",
+  "generate-report": "marge cypress/reports/report.json -f index -o cypress/reports/html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^24.0.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.8",
+    "cypress": "^15.9.0",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.1.0",
+    "mochawesome-report-generator": "^6.3.2"
+  }
+}
