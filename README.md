@@ -29,40 +29,8 @@ CI/CD readiness
 ✔ Ready for CI/CD pipelines
 ✔ Clean folder structure
 
-🛠️ Tech Stack
-Tool	Purpose
-Cypress	E2E test execution
-Cucumber	BDD (Gherkin syntax)
-JavaScript	Test logic
-Mochawesome	HTML reports
-Node.js	Runtime
-Git	Version control
-📁 Project Structure
-cypress-bdd-framework/
-│
-├── cypress/
-│   ├── e2e/
-│   │   ├── features/
-│   │   │   └── login.feature
-│   │   └── pages/
-│   │       └── LoginPage.js
-│   │
-│   ├── fixtures/
-│   │   └── loginData.json
-│   │
-│   ├── support/
-│   │   ├── step_definitions/
-│   │   │   └── loginSteps.js
-│   │   └── e2e.js
-│   │
-│   └── reports/
-│
-├── cypress.config.js
-├── package.json
-├── .gitignore
-└── README.md
-
 🚀 Step-by-Step Framework Setup
+
 1️⃣ Prerequisites
 
 Make sure the following are installed:
@@ -80,10 +48,13 @@ npm -v
 git --version
 
 2️⃣ Clone the Repository
+
 git clone https://github.com/<your-username>/cypress-bdd-framework.git
+
 cd cypress-bdd-framework
 
 3️⃣ Install Dependencies
+
 npm install
 
 
@@ -103,59 +74,12 @@ npx cypress open
 ✔ Visual test execution
 
 5️⃣ Run Tests in Headless Mode (CI Mode)
-npx cypress run
 
+npx cypress run
 
 ✔ Required for reports
 ✔ Used in CI/CD pipelines
 
-🧪 Writing Tests Using BDD
-Feature File (.feature)
-Feature: Login functionality
-
-  Scenario: Successful login with valid credentials
-    Given user is on login page
-    When user logs in with "validUser" credentials
-    Then user should be redirected to dashboard
-
-Step Definition Example
-import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
-import LoginPage from "../../e2e/pages/LoginPage";
-
-const loginPage = new LoginPage();
-
-Given("user is on login page", () => {
-  loginPage.visit();
-});
-
-When("user logs in with {string} credentials", function (userType) {
-  cy.fixture("loginData").then((data) => {
-    loginPage.enterUsername(data[userType].username);
-    loginPage.enterPassword(data[userType].password);
-    loginPage.clickLogin();
-  });
-});
-
-Then("user should be redirected to dashboard", () => {
-  cy.url().should("include", "/dashboard");
-});
-
-📦 Test Data Management (Fixtures)
-loginData.json
-{
-  "validUser": {
-    "username": "admin",
-    "password": "password123"
-  },
-  "invalidUser": {
-    "username": "wrong",
-    "password": "wrongpass"
-  }
-}
-
-
-✔ Keeps test data separate from test logic
-✔ Easy to scale and maintain
 
 📊 Reporting (Mochawesome)
 Generate Reports
@@ -196,7 +120,7 @@ Cross-browser execution
 
 👨‍💻 Author
 
-Chinna Subbi Reddy Medapati
+Yogendra Reddy Satti
 Automation Tester | Cypress | BDD | JavaScript
 
 ⭐ Final Notes
